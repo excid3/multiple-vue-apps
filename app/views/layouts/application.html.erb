@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TwoVueComponents</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p>
+    <%= link_to "Page 1", page1_path %>
+    <%= link_to "Page 2", page2_path %>
+    <%= link_to "Page 3", page3_path %>
+    <%= link_to "Page 4", page4_path %>
+    </p>
+
+    <%= yield %>
+  </body>
+</html>
