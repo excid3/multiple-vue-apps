@@ -9,9 +9,12 @@
 
 import Vue from 'vue/dist/vue.esm';
 import App from '../app';
-import TurbolinksAdapter from 'vue-turbolinks';
 
+import TurbolinksAdapter from 'vue-turbolinks';
 Vue.use(TurbolinksAdapter)
+
+import {ServerTable, ClientTable, Event} from 'vue-tables-2';
+Vue.use(ClientTable);
 
 document.addEventListener('turbolinks:load', () => {
   // Not every page has this element, so we make sure it exists first
@@ -31,6 +34,24 @@ document.addEventListener('turbolinks:load', () => {
       el: element,
       template: '<App/>',
       components: { App }
+    });
+  }
+
+  var element = document.querySelector("#people")
+  if (element != undefined) {
+    new Vue({
+      el: element,
+      data: {
+          columns: ['id', 'name', 'age'],
+          tableData: [
+              { id: 1, name: "John", age: "20" },
+              { id: 2, name: "Jane", age: "24" },
+              { id: 3, name: "Susan", age: "16" },
+              { id: 4, name: "Chris", age: "55" },
+              { id: 5, name: "Dan", age: "40" }
+          ],
+        options: {},
+      }
     });
   }
 });
